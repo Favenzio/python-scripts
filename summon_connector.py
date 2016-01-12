@@ -46,15 +46,19 @@ def summonMkHeaders(querystring):
   summonDigest = base64.encodestring(hmac.new(api_key, unicode(summonIdString), hashlib.sha1).digest())
   summonAuthstring = "Summon "+api_id+';'+summonDigest
   summonAuthstring = summonAuthstring.replace('\n','')
-  return {'Accept':summonAccept,'x-summon-date':summonThedate,'Host':summonHost,'Authorization':summonAuthstring}
+    return {'Accept':summonAccept,'x-summon-date':summonThedate,'Host':summonHost,'Authorization':summonAuthstring}
 
 if search_type == 'all':
   qstring = 's.q=' + urllib.quote_plus(keywords)
+  qstring += '&s.fvf=ContentType%2CReference%2Ct'
+  qstring += '&s.fvf=ContentType%2CBook+Review%2ct'
+  #FULL_TEXT_ONLINE:qstring += '&s.fvf=IsFullText%2Ctrue%2Cf'
+elif search_type == 'article':
+  qstring = 's.q=' + urllib.quote_plus(keywords)
+  qstring += '&s.fvf=ContentType%2CJournal+Article%2Cfalse'
 else:
   print 'Please specify search type.'
   sys.exit()
-
-#qstring += '&s.cmd=' + urllib.quote_plus('addTextFilter(Author\:\(Linster\, Richard L\))')
 
 url = 'http://%s%s?%s' % (summonHost, summonPath, qstring)
 headers = summonMkHeaders(qstring)
