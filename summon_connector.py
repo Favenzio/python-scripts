@@ -56,10 +56,16 @@ if search_type == 'all':
 elif search_type == 'article':
   qstring = 's.q=' + urllib.quote_plus(keywords)
   qstring += '&s.fvf=ContentType%2CJournal+Article%2Cfalse'
+elif search_type == 'book':
+  qstring = 's.q=' + urllib.quote_plus(keywords)
+  qstring += '&s.fvf=ContentType%2CBook%2Cfalse'
+elif search_type == 'journal':
+  qstring = 's.q=' + urllib.quote_plus(keywords)
+  qstring += '&s.fvf=ContentType%2CJournal%2Cfalse'
 else:
   print 'Please specify search type.'
   sys.exit()
-
+  
 url = 'http://%s%s?%s' % (summonHost, summonPath, qstring)
 headers = summonMkHeaders(qstring)
 request = urllib2.Request(url=url, headers=headers)
