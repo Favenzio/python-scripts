@@ -46,7 +46,7 @@ def summonMkHeaders(querystring):
   summonDigest = base64.encodestring(hmac.new(api_key, unicode(summonIdString), hashlib.sha1).digest())
   summonAuthstring = "Summon "+api_id+';'+summonDigest
   summonAuthstring = summonAuthstring.replace('\n','')
-    return {'Accept':summonAccept,'x-summon-date':summonThedate,'Host':summonHost,'Authorization':summonAuthstring}
+  return {'Accept':summonAccept,'x-summon-date':summonThedate,'Host':summonHost,'Authorization':summonAuthstring}
 
 if search_type == 'all':
   qstring = 's.q=' + urllib.quote_plus(keywords)
