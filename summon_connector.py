@@ -6,7 +6,7 @@
 # Usage: 
 # Place this file in your cgi-bin folder, make sure it is executable
 # Your url should have a query string like this:
-# http://yourserver.com/cgi-bin/summon_connector.py?id=your_summon_id&key=your_summon_key&st=all&keywords=your+keywords
+# http://yourserver.com/cgi-bin/summon_connector.py?id=your_summon_id&key=your_summon_key&st=all&kw=your+keywords
 
 import urllib2,urllib,hmac,base64,hashlib,sys,re,os,urlparse
 from datetime import datetime
