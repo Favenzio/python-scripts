@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Most of these code came from https://gist.github.com/lawlesst/1070641
+# Most of this code came from https://gist.github.com/lawlesst/1070641
 # This blog post also helped: http://blog.humaneguitarist.org/2014/09/04/getting-started-with-the-summon-api-and-python/
 #
 # Usage: 
@@ -51,7 +51,8 @@ def summonMkHeaders(querystring):
 if search_type == 'all':
   qstring = 's.q=' + urllib.quote_plus(keywords)
   qstring += '&s.fvf=ContentType%2CReference%2Ct'
-  qstring += '&s.fvf=ContentType%2CBook+Review%2ct'
+  qstring += '&s.fvf=ContentType%2CBook+Review%2Ct'
+  qstring += '&s.fvf=ContentType%2CResearch+Guide%2Ct'
   #FULL_TEXT_ONLINE:qstring += '&s.fvf=IsFullText%2Ctrue%2Cf'
 elif search_type == 'article':
   qstring = 's.q=' + urllib.quote_plus(keywords)
