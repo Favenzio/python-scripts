@@ -53,16 +53,20 @@ if search_type == 'all':
   qstring += '&s.fvf=ContentType%2CReference%2Ct'
   qstring += '&s.fvf=ContentType%2CBook+Review%2Ct'
   qstring += '&s.fvf=ContentType%2CResearch+Guide%2Ct'
+  qstring += '&s.ho=true' #Show holdings only
   #FULL_TEXT_ONLINE:qstring += '&s.fvf=IsFullText%2Ctrue%2Cf'
 elif search_type == 'article':
   qstring = 's.q=' + urllib.quote_plus(keywords)
   qstring += '&s.fvf=ContentType%2CJournal+Article%2Cfalse'
+  qstring += '&s.ho=true' #Show holdings only
 elif search_type == 'book':
   qstring = 's.q=' + urllib.quote_plus(keywords)
   qstring += '&s.fvf=ContentType%2CBook%2Cfalse'
+  qstring += '&s.ho=true' #Show holdings only
 elif search_type == 'journal':
   qstring = 's.q=' + urllib.quote_plus(keywords)
   qstring += '&s.fvf=ContentType%2CJournal%2Cfalse'
+  qstring += '&s.ho=true' #Show holdings only
 else:
   print 'Please specify search type.'
   sys.exit()
